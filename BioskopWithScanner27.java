@@ -17,29 +17,36 @@ public class BioskopWithScanner27 {
 
             switch (menu) {
                 case 1: {
+                    int baris, kolom;
+                    while (true){
                     System.out.print("Masukkan baris: ");
-                    int baris = sc.nextInt();
+                    baris = sc.nextInt();
                     System.out.print("Masukkan kolom: ");
-                    int kolom = sc.nextInt();
+                    kolom = sc.nextInt();
                     sc.nextLine();
 
                     if (baris < 1 || baris > penonton.length) {
-                        System.out.println("Baris " + baris + " tidak tersedia! (1 - " + penonton.length + ")");
+                        System.out.println("Baris tidak tersedia! Coba lagi.");
                     } else if (kolom < 1 || kolom > penonton[baris - 1].length) {
+                        System.out.println("Kolom tidak tersedia! Coba lagi.");
+                    } else if (penonton[baris - 1][kolom - 1] != null) {
                         System.out.println(
-                                "Kolom " + kolom + " tidak tersedia! (1 - " + penonton[baris - 1].length + ")");
+                                "Kursi sudah diisi oleh " + penonton[baris - 1][kolom - 1] + "! Pilih kursi lain.");
                     } else {
-                        System.out.print("Masukkan nama: ");
-                        String nama = sc.nextLine();
-                        penonton[baris - 1][kolom - 1] = nama;
-                        System.out.println("Data berhasil disimpan.");
+                        break;
                     }
+                    }
+                    System.out.print("Masukkan nama: ");
+                    String nama = sc.nextLine();
+                    penonton[baris - 1][kolom - 1] = nama;
+                    System.out.println("Data berhasil disimpan.");
                     break;
                 }
                 case 2: {
                     System.out.println("\n--- Daftar Penonton ---");
                     for (int i = 0; i < penonton.length; i++) {
                         for (int j = 0; j < penonton[i].length; j++) {
+                            
                             System.out.print(penonton[i][j] + "\t");
                         }
                         System.out.println();
