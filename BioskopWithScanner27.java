@@ -22,11 +22,18 @@ public class BioskopWithScanner27 {
                     System.out.print("Masukkan kolom: ");
                     int kolom = sc.nextInt();
                     sc.nextLine();
-                    System.out.print("Masukkan nama: ");
-                    String nama = sc.nextLine();
 
-                    penonton[baris - 1][kolom - 1] = nama;
-                    System.out.println("Data berhasil disimpan.");
+                    if (baris < 1 || baris > penonton.length) {
+                        System.out.println("Baris " + baris + " tidak tersedia! (1 - " + penonton.length + ")");
+                    } else if (kolom < 1 || kolom > penonton[baris - 1].length) {
+                        System.out.println(
+                                "Kolom " + kolom + " tidak tersedia! (1 - " + penonton[baris - 1].length + ")");
+                    } else {
+                        System.out.print("Masukkan nama: ");
+                        String nama = sc.nextLine();
+                        penonton[baris - 1][kolom - 1] = nama;
+                        System.out.println("Data berhasil disimpan.");
+                    }
                     break;
                 }
                 case 2: {
