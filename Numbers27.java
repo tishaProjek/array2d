@@ -17,8 +17,17 @@ public class Numbers27 {
         for (int i = 0; i < myNumbers.length; i++) {
             System.out.println("Panjang baris ke-" + (i + 1) + ": " + myNumbers[i].length);
         }
-        int[][] salinan = myNumbers;
+
+        int[][] salinan = new int[myNumbers.length][];
+
+        for (int i = 0; i < myNumbers.length; i++) {
+            salinan[i] = new int[myNumbers[i].length];
+            for (int j = 0; j < myNumbers[i].length; j++) {
+                salinan[i][j] = myNumbers[i][j];
+            }
+        }
         salinan[0][0] = 99;
         System.out.println(myNumbers[0][0]);
+
     }
 }
