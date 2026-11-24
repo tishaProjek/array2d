@@ -19,15 +19,11 @@ public class Numbers27 {
         }
 
         int[][] salinan = new int[myNumbers.length][];
-
         for (int i = 0; i < myNumbers.length; i++) {
-            salinan[i] = new int[myNumbers[i].length];
-            for (int j = 0; j < myNumbers[i].length; j++) {
-                salinan[i][j] = myNumbers[i][j];
-            }
+            salinan[i] = myNumbers[i].clone();
         }
         salinan[0][0] = 99;
-        System.out.println(myNumbers[0][0]);
-
+        System.out.println(Arrays.deepToString(myNumbers));
+        System.out.println(Arrays.deepToString(salinan));
     }
 }
